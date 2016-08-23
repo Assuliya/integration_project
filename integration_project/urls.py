@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^time/', include('apps.base_time.urls')),
     url(r'^ninja-gold/', include('apps.ninja_gold.urls')),
     url(r'^random-word/', include('apps.random_word.urls')),
-    url(r'^$', include('apps.multiple_apps.urls'))
+    url(r'^', include('apps.multiple_apps.urls'))
 ]
