@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Courses</title>
+</head>
+<body>
+
+	<h1>Destroy</h1>
+
+	<h3>Are you sure you want to delete the following course?</h3>
+  <h4> Name </h4>
+  <p>{{course.name}}</p>
+  <h4> Description </h4>
+  <p>{{course.description}}</p>
+
+	<a href="{% url 'course_back' %}">No</a>
+  <a href="{% url 'course_destroy' user_id=course.id%}">Yes</a>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Courses</title>
+</head>
+<body>
+	<h3>Add a new course:</h3>
+	<form action="{% url 'course_register' %}" method="post">
+		{% csrf_token %}
+		<select name="user">Users:
+		{%  for user in users %}
+  			<option value={{user.id}}>{{user.first_name}} {{user.last_name}}</option>
+		{% endfor %}
+		</select>
+ 		Hobby Name: <input type='text' name='name'>
+ 		Description: <input type='text' name='description'>
+	  <input type='submit' value='Register'>
+	</form>
+  <br>
+  <table>
+     <thead>
+        <tr>
+					<th>User Name</th>
+          <th>Course Name</th>
+          <th>Description</th>
+          <th>Date Added</th>
+          <th>Actions</th>
+        </tr>
+     </thead>
+     <tbody>
+       {%  for course in courses %}
+          <tr>
+						<th>{{course.person.first_name}} {{course.person.last_name}}</th>
+            <th>{{course.name}}</th>
+            <th>{{course.description}}</th>
+            <th>{{course.created_at}}</th>
+            <th><a href="{%url 'course_delete' user_id=course.id%}">Delete</a></th>
+          </tr>
+        {% endfor %}
+     </tbody>
+  </table>
+</body>
+</html>
